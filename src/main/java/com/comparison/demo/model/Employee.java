@@ -16,13 +16,13 @@ import lombok.NoArgsConstructor;
 public class Employee implements Comparable<Employee> {
 	@Id
 	@Column(name="Id")
-	private Integer Id;
+	private Integer id;
 	
 	@Column(name="Name")
 	private String name;
 	
 	@Column(name="Email")
-	private String Email;
+	private String email;
 
 	@Override
 	public int compareTo(Employee o) {

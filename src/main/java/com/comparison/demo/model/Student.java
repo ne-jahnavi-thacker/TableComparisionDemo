@@ -28,13 +28,13 @@ public class Student implements Comparable<Student>{
 			
 			 if (obj == null) { return false; }
 			 else if(getId() != emp.getId()) {
-				System.out.println("id not match");
+				System.out.println("\nId is not same in two tables");
 				return false;
 			}else if(!getName().equals(emp.getName())) {
-				System.out.println("name not match");
+				System.out.println("\nName is not same in two tables");
 				return false;
 			}else if(!getEmail().equals(emp.getEmail())) {
-				System.out.println("email not match");
+				System.out.println("\nEmail is not same in two tables");
 				return false;
 			}
 		}

@@ -36,19 +36,19 @@ public class StudentController {
 		Collections.sort(lstStudent);
 		Collections.sort(lstEmployee);
 		boolean isIdentical = true;
-		
+		String msg = null;
 		for(int i=0 ; i < lstStudent.size(); i++) {
 			if(!lstStudent.get(i).equals(lstEmployee.get(i))){
-				System.out.println("Two tables are not same because of these data \nin Student Table\n" +lstStudent.get(i)+"\nin Employee Table\n"+lstEmployee.get(i));
+				System.out.println("\nTwo tables are not same because of these data \n" +lstStudent.get(i)+"\n"+lstEmployee.get(i));
+				msg = "Two tables are not same because of these data \n" +lstStudent.get(i)+"\n"+lstEmployee.get(i);
 				isIdentical = false;
 				break;
 			}
 		}
 		if(isIdentical) {
 			return new ResponseEntity<String>("Two tables are identical",  HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<String>("Two tables are NOT identical",  HttpStatus.OK);
+		}else {
+			return new ResponseEntity<String>(msg != null ? msg : "Two tables are NOT identical",  HttpStatus.OK);
 		}
 		
 	}
