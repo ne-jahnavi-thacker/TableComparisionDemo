@@ -12,25 +12,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.comparison.demo.model.Employee;
 import com.comparison.demo.service.IEmployeeService;
-
+/*
+ * @author jahnavi.thacker
+ */
 @RestController
 public class EmployeeController {
-	
+
 	@Autowired
 	private IEmployeeService employeeService;
-	
 
-	
-	
+	/*
+	 * This method will add Employee to table
+	 * 
+	 * @param RequestBody Employee
+	 * @return ResponseEntity of savedEmployee object
+	 */
 	@PostMapping("/addEmployee")
-	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
 		Employee savedEmployee = employeeService.addEmployee(employee);
 		return new ResponseEntity<Employee>(savedEmployee, HttpStatus.CREATED);
 	}
+
+	/*
+	 * This method will retrive all employee data
+	 * @return ResponseEntity of list of Employee objects
+	 */
 	@GetMapping("/getAllEmployees")
-	public ResponseEntity<List<Employee>> getAllEmployees(){
-		List<Employee> lstEmployee =  employeeService.getAllEmployees();
+	public ResponseEntity<List<Employee>> getAllEmployees() {
+		List<Employee> lstEmployee = employeeService.getAllEmployees();
 		return new ResponseEntity<List<Employee>>(lstEmployee, HttpStatus.OK);
-		
+
 	}
 }

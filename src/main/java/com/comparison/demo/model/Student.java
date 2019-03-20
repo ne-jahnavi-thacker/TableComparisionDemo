@@ -10,37 +10,38 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 	@Id
-	@Column(name="Id")
+	@Column(name = "Id")
 	private Integer id;
-	
-	@Column(name="Name")
+
+	@Column(name = "Name")
 	private String name;
-	
-	@Column(name="Email")
+
+	@Column(name = "Email")
 	private String email;
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Employee) {
-			Employee emp = (Employee)obj;
-			
-			 if (obj == null) { return false; }
-			 else if(getId() != emp.getId()) {
+		if (obj instanceof Employee) {
+			Employee emp = (Employee) obj;
+
+			if (obj == null) {
+				return false;
+			} else if (getId() != emp.getId()) {
 				System.out.println("\nId is not same in two tables");
 				return false;
-			}else if(!getName().equals(emp.getName())) {
+			} else if (!getName().equals(emp.getName())) {
 				System.out.println("\nName is not same in two tables");
 				return false;
-			}else if(!getEmail().equals(emp.getEmail())) {
+			} else if (!getEmail().equals(emp.getEmail())) {
 				System.out.println("\nEmail is not same in two tables");
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -55,7 +56,5 @@ public class Student implements Comparable<Student>{
 	public int compareTo(Student o) {
 		return this.getId().compareTo(o.getId());
 	}
-	
-	
 
 }
